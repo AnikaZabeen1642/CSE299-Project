@@ -1,16 +1,3 @@
 # medi_app
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Aa mobile app using Flutter in Android Studio. It has three features. 1st, it will have a medicine reminder feature with notifications. Users can add up to 30 medicines at a time. It will also have a medicine search feature. It will also have a search by location function that will allow users to find nearby hospitals and list of doctors at those hospitals. This will be achieved using a database that we will manually create. we will use MongoDB for database. Please provide me a flowchart for the work of this project.
