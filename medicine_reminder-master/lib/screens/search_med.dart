@@ -89,7 +89,7 @@ class _SearchHomePageState extends State<HomePageWidget> {
               Expanded(
                 child: StreamBuilder<QuerySnapshot>(
                   stream: FirebaseFirestore.instance
-                      .collection('medicine_details')
+                      .collection('med_details')
                       .snapshots(),
                   builder: (context, snapshot) {
                     if (!snapshot.hasData) {

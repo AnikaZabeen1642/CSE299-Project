@@ -50,8 +50,8 @@ class _ShowDoctorDetailsWidgetState extends State<ShowDoctorDetailsWidget> {
           top: true,
           child: FutureBuilder<QuerySnapshot>(
             future: FirebaseFirestore.instance
-                .collection('hospital_search')
-                .where('location', isEqualTo: widget.location) // Query by location
+                .collection('hos_search')
+                .where('Location', isEqualTo: widget.location) // Query by location
                 .get(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
@@ -67,10 +67,10 @@ class _ShowDoctorDetailsWidgetState extends State<ShowDoctorDetailsWidget> {
               }
 
               final hospitalData = snapshot.data!.docs[0]; // Get the first document
-              final hosName = (hospitalData['hos_name'] ?? 'Unknown').toString();
-              final address = (hospitalData['address'] ?? 'No address provided').toString();
-              final contact = (hospitalData['contact'] ?? 'No contact available').toString();
-              final location = (hospitalData['location'] ?? 'Unknown location').toString();
+              final hosName = (hospitalData['HospitalName'] ?? 'Unknown').toString();
+              final address = (hospitalData['Address'] ?? 'No address provided').toString();
+              final contact = (hospitalData['Contact'] ?? 'No contact available').toString();
+              final location = (hospitalData['Location'] ?? 'Unknown location').toString();
 
               return SingleChildScrollView(
                 child: Column(
@@ -162,7 +162,7 @@ class _ShowDoctorDetailsWidgetState extends State<ShowDoctorDetailsWidget> {
     // Iterate over predefined subcollections (e.g., 'd1', 'd2', 'd3')
     for (var subCollectionName in subCollections) {
       final subCollectionSnapshot = await FirebaseFirestore.instance
-          .collection('hospital_search')
+          .collection('hos_search')
           .doc(hospitalId)
           .collection(subCollectionName)
           .get();

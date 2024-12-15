@@ -90,7 +90,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               Expanded(
                 child: StreamBuilder<QuerySnapshot>(
                   stream: FirebaseFirestore.instance
-                      .collection('hospital_search')
+                      .collection('hos_search')
                       .snapshots(),
                   builder: (context, snapshot) {
                     if (!snapshot.hasData) {
@@ -100,8 +100,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     }
 
                     final filteredHospitals = snapshot.data!.docs.where((doc) {
-                      final hosName = doc['hos_name']?.toString().toLowerCase() ?? '';
-                      final location = doc['location']?.toString().toLowerCase() ?? '';
+                      final hosName = doc['HospitalName']?.toString().toLowerCase() ?? '';
+                      final location = doc['Location']?.toString().toLowerCase() ?? '';
                       return hosName.contains(searchQuery) ||
                           location.contains(searchQuery);
                     }).toList();
@@ -119,8 +119,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       itemCount: filteredHospitals.length,
                       itemBuilder: (context, index) {
                         final hospital = filteredHospitals[index];
-                        final hosName = hospital['hos_name'] ?? "N/A";
-                        final location = hospital['location'] ?? "N/A";
+                        final hosName = hospital['HospitalName'] ?? "N/A";
+                        final location = hospital['Location'] ?? "N/A";
 
                         return Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
